@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Clone the Git repository containing Terraform files
-                    sh 'rm -rf docker-project'
+                    sh 'rm -rf docker'
                     sh 'git clone https://github.com/yatheesh2328/Docker.git'
                 }
             }
