@@ -24,7 +24,7 @@ pipeline {
         stage('Planning-stage') {
           steps {
             sh 'terraform plan -out tfplan'
-            sh 'terraform show -no-color tfplan > tfplan.txt'
+            // sh 'terraform show -no-color tfplan > tfplan.txt'
           }
         }
       }
