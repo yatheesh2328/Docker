@@ -29,7 +29,7 @@ pipeline {
             steps {
                 dir('Docker') {
                     // Apply the Terraform plan
-                    sh 'terraform apply'
+                    sh 'terraform apply tfplan'
                 }
             }
         }
