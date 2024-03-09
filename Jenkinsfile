@@ -39,5 +39,10 @@ pipeline {
                 }
             }
         }
+        stage('Destroy') {
+            steps {
+                dir('Docker') {
+                    // Apply the Terraform plan
+                    sh 'terraform destroy -auto-approve'
     }
 }
