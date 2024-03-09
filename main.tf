@@ -29,7 +29,7 @@ resource "aws_security_group" "allow_SGB" {
 resource "aws_instance" "firstinstance" {
     ami             = "ami-07d9b9ddc6cd8dd30"
     instance_type   = "t2.medium"
-    security_groups = [aws_security_group.allow_SGB.id]  
+    security_groups = [aws_security_group.allow_SGB.name]  
     user_data       = file("Docker-EC2.sh")  
     tags = {
         Name = "Docker-VM"
