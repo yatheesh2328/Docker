@@ -1,7 +1,6 @@
 provider "aws" {
     region = "us-east-1"
 }
-
 resource "aws_security_group" "allow_SGB" {
     name        = "allow_SGB"
     description = "allow_SGB"
@@ -27,7 +26,6 @@ resource "aws_security_group" "allow_SGB" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 }
-
 resource "aws_instance" "firstinstance" {
     ami             = "ami-07d9b9ddc6cd8dd30"
     instance_type   = "t2.medium"
