@@ -1,6 +1,6 @@
 pipeline {
-    agent { 
-        dockerfile true 
+    agent {
+        dockerfile true
     }
     
     environment {
@@ -43,15 +43,6 @@ pipeline {
                 dir('Docker') {
                     // Apply the Terraform plan
                     sh 'terraform apply tfplan'
-                }
-            }
-        }
-
-        stage('Destroy') {
-            steps {
-                dir('Docker') {
-                    // Apply the Terraform plan
-                    sh 'terraform destroy -auto-approve'
                 }
             }
         }
