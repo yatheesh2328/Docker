@@ -4,7 +4,7 @@ pipeline {
     }
     
     environment {
-        // Use Jenkins credentials for AWS access keys
+
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    // Clone the Git repository containing Terraform files
+
                     sh 'rm -rf Docker'
                     sh 'git clone https://github.com/yatheesh2328/Docker.git'
                 }
@@ -22,7 +22,7 @@ pipeline {
 
         stage('terraform-init-stage') {
             steps {
-                // Change to the directory where Terraform files are cloned
+
                 dir('Docker') {
                     sh 'terraform init'
                 }
@@ -32,7 +32,7 @@ pipeline {
         stage('Planning-stage') {
             steps {
                 dir('Docker') {
-                    // Generate Terraform plan and save it to a file named tfplan
+
                     sh 'terraform plan -out tfplan'
                 }
             }
@@ -43,15 +43,6 @@ pipeline {
                 dir('Docker') {
                     // Apply the Terraform plan
                     sh 'terraform apply tfplan'
-                }
-            }
-        }
-        
-        stage('Destroy') {
-            steps {
-                dir('Docker') {
-                    // Destroy the Terraform resources
-                    sh 'terraform destroy -auto-approve'
                 }
             }
         }
