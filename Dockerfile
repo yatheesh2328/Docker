@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm terraform_1.7.4_linux_amd64.zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt--get install -y git
+RUN apt-get update && apt-get install -y git
 
 RUN terraform --version
 WORKDIR /home/terraform
