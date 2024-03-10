@@ -1,5 +1,7 @@
 pipeline {
-    agent { Dockerfile true }
+    agent {
+        docker { image 'terraform' }
+    }
     stages {
         stage('Test') {
             steps {
