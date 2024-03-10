@@ -46,5 +46,14 @@ pipeline {
                 }
             }
         }
+        
+        stage('Destroy') {
+            steps {
+                dir('Docker') {
+                    // Destroy the Terraform resources
+                    sh 'terraform destroy -auto-approve'
+                }
+            }
+        }
     }
 }
