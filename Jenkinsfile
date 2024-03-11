@@ -41,7 +41,7 @@ pipeline {
         stage('Apply') {
             steps {
                 dir('Docker') {
-                    // Apply the Terraform plan
+                    
                     sh 'terraform apply tfplan'
                 }
             }
