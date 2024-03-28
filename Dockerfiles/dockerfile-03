@@ -1,0 +1,10 @@
+# creating an dockerfile to create an image which having jenkins
+FROM ubuntu:20.04
+RUN apt update
+RUN apt install default-jre -y
+# RUN apt install tree
+RUN apt -y install wget
+
+#installing jenkins
+COPY jenkins.sh .
+CMD ./jenkins.sh
